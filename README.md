@@ -103,3 +103,38 @@ $yarn add
 $ bundle add bootstrap
 $ mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss
 $ yarn add reactstrap
+
+
+Sass stands for Syntactically Awesome Stylesheet
+Sass reduces repetition of CSS and therefore saves time. Sass lets you use features that do not exist in CSS, like variables, nested rules, mixins, imports, inheritance, built-in functions, and other stuff.
+
+/* define variables for the primary colors */
+$primary_1: #a2b9bc;
+$primary_2: #b2ad7f;
+$primary_3: #878f99;
+
+/* use the variables */
+.main-header {
+  background-color: $primary_1;
+}
+
+.menu-left {
+  background-color: $primary_2;
+}
+
+
+$imgpath: "app/assets/images/header.jpg";
+
+header {
+	background: $imgpath no-repeat left bottom;
+}
+
+.menu-right {
+  background-color: $primary_3;
+}
+
+<div style={{ backgroundImage: "url(/img/header.jpg)", backgroundRepeat: 'no-repeat',
+  width:'100%'}}>
+
+  header from https://www.fancytextguru.com/cute.html
+  footer ·.★·.·´¯`·.·★ 🅲🅰🆂🅷 🅽 🅲🅾🅼🅵🅾🆁🆃 ★·.·´¯`·.·★.·
