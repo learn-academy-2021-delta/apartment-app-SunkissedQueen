@@ -1,3 +1,17 @@
 // Place all the styles related to the Apartments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+/* Define standard variables and values for website */
+$bgcolor: lightblue;
+$textcolor: darkblue;
+$fontsize: 18px;
+$textalign: center;
+
+/* Use the variables */
+body {
+  background-color: $bgcolor;
+  color: $textcolor;
+  font-size: $fontsize;
+  text-align: $textalign;
+}

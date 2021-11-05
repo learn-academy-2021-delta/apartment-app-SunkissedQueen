@@ -103,3 +103,62 @@ $yarn add
 $ bundle add bootstrap
 $ mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss
 $ yarn add reactstrap
+
+
+Sass stands for Syntactically Awesome Stylesheet
+Sass reduces repetition of CSS and therefore saves time. Sass lets you use features that do not exist in CSS, like variables, nested rules, mixins, imports, inheritance, built-in functions, and other stuff.
+
+/* define variables for the primary colors */
+$primary_1: #a2b9bc;
+$primary_2: #b2ad7f;
+$primary_3: #878f99;
+
+/* use the variables */
+.main-header {
+  background-color: $primary_1;
+}
+
+.menu-left {
+  background-color: $primary_2;
+}
+
+
+$imgpath: "app/assets/images/header.jpg";
+
+header {
+	background: $imgpath no-repeat left bottom;
+}
+
+.menu-right {
+  background-color: $primary_3;
+}
+
+<div style={{ backgroundImage: "url(/img/header.jpg)", backgroundRepeat: 'no-repeat',
+  width:'100%'}}>
+
+  header from https://www.fancytextguru.com/cute.html
+  footer ·.★·.·´¯`·.·★ 🅲🅰🆂🅷 🅽 🅲🅾🅼🅵🅾🆁🆃 ★·.·´¯`·.·★.·
+
+  If receive an error message about commits conflicting with github and terminal
+  To https://github.com/learn-academy-2021-delta/apartment-app-SunkissedQueen.git
+ ! [rejected]        login -> login (fetch first)
+error: failed to push some refs to 'https://github.com/learn-academy-2021-delta/apartment-app-SunkissedQueen.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+$ git pull origin login
+$ git add .
+$ git commit -m "delete DS-Stores"
+$ git push origin login
+
+update gitignore to ensure no more issues with DS_stores
+If .DS_Store was never added to your git repository, simply add it to your .gitignore file.
+
+If you don't have one, create a file called
+.gitignore
+In your the root directory of your app and simply write
+
+**/.DS_Store
