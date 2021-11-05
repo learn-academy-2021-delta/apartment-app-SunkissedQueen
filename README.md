@@ -138,3 +138,27 @@ header {
 
   header from https://www.fancytextguru.com/cute.html
   footer ·.★·.·´¯`·.·★ 🅲🅰🆂🅷 🅽 🅲🅾🅼🅵🅾🆁🆃 ★·.·´¯`·.·★.·
+
+  If receive an error message about commits conflicting with github and terminal
+  To https://github.com/learn-academy-2021-delta/apartment-app-SunkissedQueen.git
+ ! [rejected]        login -> login (fetch first)
+error: failed to push some refs to 'https://github.com/learn-academy-2021-delta/apartment-app-SunkissedQueen.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+$ git pull origin login
+$ git add .
+$ git commit -m "delete DS-Stores"
+$ git push origin login
+
+update gitignore to ensure no more issues with DS_stores
+If .DS_Store was never added to your git repository, simply add it to your .gitignore file.
+
+If you don't have one, create a file called
+.gitignore
+In your the root directory of your app and simply write
+
+**/.DS_Store
