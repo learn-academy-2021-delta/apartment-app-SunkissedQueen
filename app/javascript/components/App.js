@@ -1,32 +1,21 @@
-import React from "react"
+import React, { Component } from 'react'
+import Home from './pages/Home'
 
-class App extends React.Component {
-  render () {
-    const {
-      logged_in,
-      current_user,
-      new_user_route,
-      sign_in_route,
-      sign_out_route
-    } = this.props
+import {
+  BrowserRouter as  Router,
+  Routes,
+  Route
+} from 'react-router-dom'
+
+class App extends Component {
+  render() {
     return (
-      <> 
-      ★¸.•☆•.¸★ 🄲🄰🅂🄷  🄽  🄲🄾🄼🄵🄾🅁🅃 ★⡀.•☆•.★
-      <h2>If you have currency, we have vacancy.</h2>
-        { logged_in &&
-          <div>
-            <a href={sign_out_route }>Log Out</a>
-          </div>
-        }
-        { !logged_in &&
-          <div>
-            <a href={ sign_in_route }>Log In</a>
-          </div>
-        }
-      </>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+        </Routes>
+      </Router>
     )
   }
 }
-
-
 export default App
