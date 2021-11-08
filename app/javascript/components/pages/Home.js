@@ -1,31 +1,37 @@
 import React, { Component } from 'react'
 import apt from '../assets/header.jpg'
+import apt1 from '../assets/aptkeys.jpeg'
+import apt2 from '../assets/kitchen.jpeg'
 
 class Home extends Component {
     render() {
-        const {
-            logged_in,
-            current_user,
-            new_user_route,
-            sign_in_route,
-            sign_out_route
-        } = this.props
         return (
             <>
-            ★¸.•☆•.¸★ 🄲🄰🅂🄷  🄽  🄲🄾🄼🄵🄾🅁🅃 ★⡀.•☆•.★
-            <br/>
-            <img src={apt} alt="cozy bedroom with plants" style={{height:"200px"}} />
-            <h2>If you have currency, we have vacancy.</h2>
-            { logged_in &&
-                <div>
-                <a href={sign_out_route }>Sign Out</a>
-                </div>
-            }
-            { !logged_in &&
-                <div>
-                <a href={ sign_in_route }>Sign In</a>
-                </div>
-            }
+            <div class="board">
+                <table>
+                    <tr>
+                    <td>If</td>
+                    <td>there's</td>
+                    <td>currency</td>
+                    </tr>
+                    <tr>
+                    <td>
+                        <img src={apt} alt="cozy bedroom with plants" style={{height:"100px"}} />
+                    </td>
+                    <td>
+                        <img src={apt1} alt="apt keychain" style={{height:"100px"}} />
+                    </td>
+                    <td>
+                        <img src={apt2} alt="kitchen" style={{height:"100px"}} />
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>There</td>
+                    <td>is</td>
+                    <td>vacancy</td>
+                    </tr>
+                </table>
+            </div>
         </>
       )
     }

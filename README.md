@@ -162,3 +162,21 @@ If you don't have one, create a file called
 In your the root directory of your app and simply write
 
 **/.DS_Store
+
+???????When passing the login/logout button and signin/out routes establish by devise...I could only get them to work on the App.js page. Will research on the proper way to render on other pages
+
+git clone present repository in github will auto create a folder rails app on local machine. Ensure that a new branch is created. $bundle $yarn
+
+$  yarn add react-router-dom  ///fix the errors I was having with router-dom
+
+more errors occurred and stated that I needed to migrate
+$ bin/rails db:migrate RAILS_ENV=development
+
+css for home page would only render on the application.scss
+
+copyright  &copy;
+
+to run test for javascript/react side of app
+$ yarn add -D enzyme react-test-renderer enzyme-adapter-react-16
+$ yarn test
+Control + C to stop the testing suite.
