@@ -21,11 +21,14 @@ class Header extends Component {
         </ul>
         <div>
             <ul>
-                {logged_in &&
-                <a href={sign_out_route} className="nav-link">Sign Out</a>
-                }
                 {!logged_in &&
+                <>
                 <a href={sign_in_route} className="nav-link">Sign In</a>
+                <a href={new_user_route} className="nav-link">Sign Up</a>
+                </>
+                }
+                {logged_in &&
+                <a href={sign_out_route} className="nav-link">Sign Out</a>    
                 }
             </ul>
         </div>

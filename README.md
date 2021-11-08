@@ -100,6 +100,7 @@ React Strap
 get '*path', to: 'home#index', constraints: ->(request){ request.format.html? }
 $yarn add 
 
+Do this step after webpacker
 $ bundle add bootstrap
 $ mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss
 $ yarn add reactstrap
