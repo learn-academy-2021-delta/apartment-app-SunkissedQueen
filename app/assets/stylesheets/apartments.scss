@@ -7,6 +7,14 @@ $bgcolor: lightblue;
 $textcolor: darkblue;
 $fontsize: 18px;
 $textalign: center;
+$justifycontent: space-between;
+$alignitems: center;
+$height: 200px;
+$border: 5px solid darkblue;
+$display: flex;
+$flex: row;
+$align:0 auto;
+$justcntr: center;
 
 /* Use the variables */
 body {
@@ -14,4 +22,13 @@ body {
   color: $textcolor;
   font-size: $fontsize;
   text-align: $textalign;
+  justify-content: $justifycontent;
+  align-items: $alignitems;
+}
+
+board {
+  display: $display;
+  align-items: $alignitems;
+  justify-content: $justcntr;
+  text-align: $textalign;  
 }

@@ -13,3 +13,44 @@
  *= require_tree .
  *= require_self
  */
+//  @import 'bootstrap'; could not get bootstrap to work
+
+// Header/Footer
+header, footer{
+    background-color: darkblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+}
+.logo{
+    height: 30px;
+    margin-left: 15px;
+}
+.nav-links{
+    height: 15px;
+}
+a{
+    color: lightblue;
+    margin-right: 15px;
+}
+
+// Table on home page
+.board{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center; 
+    margin: 0 auto; 
+    padding: 20px;
+}
+table{
+    border: 2px solid darkblue;
+  }
+td{
+    border: 2px dashed darkblue;
+    font-size: 50px;
+    height: 100px;
+    width: 100px;
+}
+
