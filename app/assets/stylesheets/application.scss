@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-//  @import 'bootstrap'; could not get bootstrap to work
+//  @import 'bootstrap';
 
 // Header/Footer
 header, footer{
@@ -28,7 +28,7 @@ header, footer{
     margin-left: 15px;
 }
 .nav-links{
-    height: 15px;
+    height: 10px;
 }
 a{
     color: lightblue;

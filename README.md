@@ -100,6 +100,7 @@ React Strap
 get '*path', to: 'home#index', constraints: ->(request){ request.format.html? }
 $yarn add 
 
+Do this step after webpacker
 $ bundle add bootstrap
 $ mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss
 $ yarn add reactstrap
@@ -180,3 +181,5 @@ to run test for javascript/react side of app
 $ yarn add -D enzyme react-test-renderer enzyme-adapter-react-16
 $ yarn test
 Control + C to stop the testing suite.
+
+Decided to use the built-in methods to navigate from create account to sign up and back to home

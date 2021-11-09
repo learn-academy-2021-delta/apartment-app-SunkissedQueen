@@ -13,19 +13,26 @@ class Header extends Component {
     } = this.props
     return (
       <header>
-        <NavLink to="/">
-          <img src={logo} alt="apartment logo" className="logo"/>
-        </NavLink>
         <ul style={{color:"lightblue"}}>
             ★¸.•☆•.¸★ 🄲🄰🅂🄷  🄽  🄲🄾🄼🄵🄾🅁🅃 ★⡀.•☆•.★
         </ul>
+        <NavLink to="/">Home</NavLink>
         <div>
             <ul>
-                {logged_in &&
-                <a href={sign_out_route} className="nav-link">Sign Out</a>
-                }
                 {!logged_in &&
+                <>
+                <NavLink to="/aptindex" className="nav-link">Vacant Apartments</NavLink>
                 <a href={sign_in_route} className="nav-link">Sign In</a>
+                <a href={new_user_route} className="nav-link">Create Account</a>
+                </>
+                }
+                {logged_in &&
+                <>
+                <a href={sign_out_route} className="nav-link">Sign Out</a>    
+                <NavLink to="/aptindex" className="nav-link">Vacancies</NavLink>
+                <NavLink to="/aptnew" className="nav-link">Add an Apartment</NavLink>
+                <NavLink to="/myapt" className="nav-link">My Apartments</NavLink>
+                </>
                 }
             </ul>
         </div>
