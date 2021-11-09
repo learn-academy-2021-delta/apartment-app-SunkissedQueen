@@ -181,3 +181,5 @@ to run test for javascript/react side of app
 $ yarn add -D enzyme react-test-renderer enzyme-adapter-react-16
 $ yarn test
 Control + C to stop the testing suite.
+
+Decided to use the built-in methods to navigate from create account to sign up and back to home

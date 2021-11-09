@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Home from './pages/Home'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import AptIndex from './pages/AptIndex'
 
 import {
   BrowserRouter as  Router,
@@ -24,8 +25,9 @@ class App extends Component {
           <Header {...this.props}/>
           <Routes>
             <Route exact path="/" element={<Home />} />
+            <Route path="/aptIndex" element={<AptIndex />} />
           </Routes>
-          <Footer />
+          <Footer {...this.props} />
         </Router>
       </>
     )
