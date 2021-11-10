@@ -36,7 +36,7 @@ a{
 }
 
 // Table on home page
-.board{
+.board, .page-body{
     display: flex;
     justify-content: center;
     text-align: center;
@@ -54,3 +54,23 @@ td{
     width: 100px;
 }
 
+//Index page, apt cards
+.index-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .card.card-body {
+    width: 300px;
+    background-color: #FFFEF1;
+    margin: 20px;
+  }
+  
+  //showcards
+//   .page-body{
+//     text-align: center;
+//     display: block;
+//     margin-left: auto;
+//     margin-right: auto;
+//     width: 50%;
+//   }
