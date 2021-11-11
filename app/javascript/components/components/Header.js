@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-import logo from '../assets/aptmoney.jpeg'
 import ApartmentIndex from '../pages/ApartmentIndex'
 
 
@@ -16,7 +15,9 @@ class Header extends Component {
     return (
       <header>
         <ul style={{color:"lightblue"}}>
-          <NavLink to="/">★¸.•☆•.¸★ 🄲🄰🅂🄷  🄽  🄲🄾🄼🄵🄾🅁🅃 ★⡀.•☆•.★</NavLink>
+          <NavLink to="/">
+            ☆•.⡀★ 🄲🄰🅂🄷  🄽  🄲🄾🄼🄵🄾🅁🅃 ★⡀.•☆
+          </NavLink>
         </ul>
         <div>
             <ul>

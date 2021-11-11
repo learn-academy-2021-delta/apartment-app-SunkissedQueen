@@ -281,8 +281,12 @@ Test coverage
   "jest": {
       "roots": [
         "app/javascript/components"
-      ]
-
+      ],
+    "moduleNameMapper": {
+      "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>app/javascript/components/mockFile.js",
+      "\\.(css|less)$": "<rootDir>app/javascript/components/mockFile.js"
+    }
+  Had to create a mockFile.js page with a mock pic variable for test to pass on Header??? Will research
 Index controller method
     
 Request spec
