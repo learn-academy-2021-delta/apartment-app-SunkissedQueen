@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Card, CardTitle, CardText } from 'reactstrap'
 import { NavLink } from 'react-router-dom'
-import { faUser, faHome, faEnvelope, faDollarSign, faBed, faToiletPaper, faPaw } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faH, faAddressBook, faHome, faEnvelope, faDollarSign, faBed, faToiletPaper, faPaw, faAddressCard, faListUl } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class ApartmentShow extends Component {
@@ -9,40 +9,50 @@ class ApartmentShow extends Component {
     const { apartment } = this.props
     return (
         <>
-        <h3>With these keys, you be awed!</h3>
-        <br />
+        <h2>With these keys, you be awed!</h2>
       <div className="page-body">
           {apartment &&
             <Card body className="card-show">
-            <CardTitle tag="h4">Location</CardTitle>
+
+            <CardTitle tag="h4">
+                <FontAwesomeIcon icon={faHome} className="fa-icon" />
+                    Location
+            </CardTitle>
               <CardText>
-                <FontAwesomeIcon icon={faHome} className="fa-icon" />{apartment.street}, {apartment.city}, {apartment.state}
+                {apartment.street}, {apartment.city}, {apartment.state}
               </CardText>
-              <br />
-              <CardText>Manager Info</CardText>
-              <h5>
-                <FontAwesomeIcon icon={faUser} className="fa-icon" />{apartment.manager}, 
-                {apartment.email}
-              </h5>
-              <br />
-              <CardText>Details</CardText>
-              <h5>
+
+              <CardTitle tag="h4">
+                <FontAwesomeIcon icon={faListUl} className="fa-icon" />
+                    Details
+              </CardTitle>
+              <CardText>
                 <FontAwesomeIcon icon={faDollarSign} className="fa-icon" />{apartment.price} per month
-              </h5>
-              <h5>
+              </CardText>
+              <CardText>
                 <FontAwesomeIcon icon={faBed} className="fa-icon" />Bedrooms: {apartment.bedrooms}
-              </h5>
-              <h5>
+              </CardText>
+              <CardText>
                 <FontAwesomeIcon icon={faToiletPaper} className="fa-icon" />Bathrooms: {apartment.bathrooms}
-              </h5>
-              <h5>
+              </CardText>
+              <CardText>
                 <FontAwesomeIcon icon={faPaw} className="fa-icon" />Pets Allowed: {apartment.pets}
-              </h5>
-              <br />
+              </CardText>
+
+              <CardTitle tag="h4">
+                <FontAwesomeIcon icon={faAddressCard} className="fa-icon" />
+                    Manager Info
+              </CardTitle>
+                <CardText>
+                    {apartment.manager} 
+                </CardText>
+                <CardText>
+                    {apartment.email}
+                </CardText>
+
               <NavLink to="/apartmentindex">
                 <Button>Back</Button>
               </NavLink>
-            <br/>
         </Card>
         }
       </div>

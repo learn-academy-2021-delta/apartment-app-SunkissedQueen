@@ -56,16 +56,24 @@ td{
 
 //Index page, apt cards
 .index-cards {
+    border: 2px dashed darkblue;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
   }
   .card.card-body {
     width: 300px;
     background-color: #FFFEF1;
-    margin: 20px;
   }
-  
+  .card-img-top {
+    width: 85%;
+    height: 10vw;
+    object-fit: cover;
+}
   //showcards
 //   .page-body{
 //     text-align: center;

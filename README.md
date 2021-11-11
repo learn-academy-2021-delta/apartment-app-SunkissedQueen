@@ -311,3 +311,34 @@ form{
 .App{
   text-align: center;
 }
+
+how to reload rails s quicker
+open up text editor
+bin/webpack-dev-server
+
+Demo...one portion of the application 
+
+If you do a bd:drop...sign back in as a user on apt app...the apt need at least one user
+
+Pictures have to be passed in through the import....make separate files for the pictures, create an array. then use the following syntax is called upon the picture.
+class ApartmentIndex extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      pics: [apt, apt1 ]
+    }
+  } 
+  render() {
+    const { apartments } = this.props
+    const { pics } = this.state
+    return (
+      <>
+      
+                  <CardImg src={pics[0]} />
+
+https://reactstrap.github.io/?path=/docs/components-card--card
+
+<img src={pics[index].src} alt={pics[index].alt}/>
+
+Steps on making a carousel
+https://www.newline.co/@andreeamaco/react-carousel-building-the-component-from-scratch-vs-using-a-library--7da468d4
