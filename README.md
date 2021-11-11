@@ -287,6 +287,13 @@ Test coverage
       "\\.(css|less)$": "<rootDir>app/javascript/components/mockFile.js"
     }
   Had to create a mockFile.js page with a mock pic variable for test to pass on Header??? Will research
+
+  Attempted a App.test.js...kept receiving a fetch undefined error code. After research, I see I will need more training to setup the test.
+
+  To perform rspec tests
+    Ensure controllers are udated with the methods and application has `skip_before_action :verify_authenticity_token`
+    Upate specs/models and specs/requests
+
 Index controller method
     
 Request spec

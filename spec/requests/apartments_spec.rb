@@ -4,13 +4,13 @@ require 'rails_helper'
 
 RSpec.describe "Apartments", type: :request do
   let(:user) do
-    User.create email: 'sarah@test.com', password: '123456', password_confirmation: '123456'
+    User.create email: 'willnotbereal@nawl.com', password: 'ABC123', password_confirmation: 'ABC123'
   end
 
   # -----index-----
   describe "GET /index" do
     it 'gets all the apartments' do
-      Apartment.create street: '221c Baker Street', city: 'London', state: 'England', manager: 'Ms. Hudson', email: 'mzhud@email.com', price: '1000', bedrooms: 2, bathrooms: 2, pets: 'no', user_id: user.id
+      Apartment.create street: 'Hammock Hat Bikini Ct', city: 'Heaven', state: 'HI', manager: 'MamaLean', email: 'malean@heaven.com', price: '3333', bedrooms: 3, bathrooms: 3, pets: 'yes', user_id: user.id
 
       get '/apartments'
 
@@ -19,25 +19,31 @@ RSpec.describe "Apartments", type: :request do
       expect(response).to have_http_status(200)
 
       apartment = apartments.first
-      expect(apartment['street']).to eq '221c Baker Street'
-      expect(apartment['city']).to eq 'London'
-      expect(apartment['state']).to eq 'England'
-      expect(apartment['manager']).to eq 'Ms. Hudson'
-      expect(apartment['email']).to eq 'mzhud@email.com'
+      expect(apartment['street']).to eq 'Hammock Hat Bikini Ct'
+      expect(apartment['city']).to eq 'Heaven'
+      expect(apartment['state']).to eq 'HI'
+      expect(apartment['manager']).to eq 'MamaLean'
+      expect(apartment['email']).to eq 'malean@heaven.com'
+      expect(apartment['price']).to eq '3333'
+      expect(apartment['bedrooms']).to eq 3
+      expect(apartment['bathrooms']).to eq 3
+      expect(apartment['pets']).to eq 'yes'
+      expect(apartment['user_id']).to eq 'user.id'
+
     end
   end
   # -----create-----
-    describe "POST /cats" do
+    describe "POST /apartments" do
       it 'creates a new apartment' do
         apartment_params = {
           apartment: {
-            street: '221B Baker Street',
-            city: 'London',
-            state: 'England',
-            manager: 'Ms. Hudson',
-            email: 'mzhud@email.com',
-            price: '1000',
-            bedrooms: 2,
+            street: 'Current Dwelling Vineyard',
+            city: 'Cold Ocean',
+            state: 'CA',
+            manager: 'Full Stacker',
+            email: 'full@ofit.com',
+            price: '9999',
+            bedrooms: 4,
             bathrooms: 2,
             pets: 'no',
             user_id: user.id
@@ -46,22 +52,22 @@ RSpec.describe "Apartments", type: :request do
         post '/apartments', params: apartment_params
 
         apartment_response = JSON.parse(response.body)
-        expect(apartment_response['street']).to eq '221B Baker Street'
-        expect(apartment_response['city']).to eq 'London'
-        expect(apartment_response['state']).to eq 'England'
+        expect(apartment_response['street']).to eq 'Current Dwelling Vineyard'
+        expect(apartment_response['city']).to eq 'Cold Ocean'
+        expect(apartment_response['state']).to eq 'CA'
       end
 
       it 'cannot create a new apartment without a street' do
         apartment_params = {
           apartment: {
-            city: 'London',
-            state: 'England',
-            manager: 'Ms. Hudson',
-            email: 'mzhud@email.com',
-            price: '1500',
-            bedrooms: 2,
+            city: 'Cold Ocean',
+            state: 'CA',
+            manager: 'Full Stacker',
+            email: 'full@ofit.com',
+            price: '9999',
+            bedrooms: 4,
             bathrooms: 2,
-            pets: 'yes',
+            pets: 'no',
             user_id: user.id
           }
         }
@@ -74,14 +80,14 @@ RSpec.describe "Apartments", type: :request do
       it 'cannot create a new apartment without a city' do
         apartment_params = {
           apartment: {
-            street: '221B Baker Street',
-            state: 'England',
-            manager: 'Ms. Hudson',
-            email: 'mzhud@email.com',
-            price: '1500',
-            bedrooms: 2,
+            street: 'Current Dwelling Vineyard',
+            state: 'CA',
+            manager: 'Full Stacker',
+            email: 'full@ofit.com',
+            price: '9999',
+            bedrooms: 4,
             bathrooms: 2,
-            pets: 'yes',
+            pets: 'no',
             user_id: user.id
           }
         }
@@ -94,14 +100,14 @@ RSpec.describe "Apartments", type: :request do
       it 'cannot create a new apartment without a state' do
         apartment_params = {
           apartment: {
-            street: '221B Baker Street',
-            city: 'London',
-            manager: 'Ms. Hudson',
-            email: 'mzhud@email.com',
-            price: '1500',
-            bedrooms: 2,
+            street: 'Current Dwelling Vineyard',
+            city: 'Cold Ocean',
+            manager: 'Full Stacker',
+            email: 'full@ofit.com',
+            price: '9999',
+            bedrooms: 4,
             bathrooms: 2,
-            pets: 'yes',
+            pets: 'no',
             user_id: user.id
           }
         }
@@ -115,14 +121,14 @@ RSpec.describe "Apartments", type: :request do
       it 'cannot create a new apartment without a manager' do
         apartment_params = {
           apartment: {
-            street: '221B Baker Street',
-            city: 'London',
-            state: 'England',
-            email: 'mzhud@email.com',
-            price: '1500',
-            bedrooms: 2,
+            street: 'Current Dwelling Vineyard',
+            city: 'Cold Ocean',
+            state: 'CA',
+            email: 'full@ofit.com',
+            price: '9999',
+            bedrooms: 4,
             bathrooms: 2,
-            pets: 'yes',
+            pets: 'no',
             user_id: user.id
           }
         }
@@ -135,14 +141,14 @@ RSpec.describe "Apartments", type: :request do
       it 'cannot create a new apartment without an email' do
         apartment_params = {
           apartment: {
-            street: '221B Baker Street',
-            city: 'London',
-            state: 'England',
-            manager: 'Ms. Hudson',
-            price: '1500',
-            bedrooms: 2,
+            street: 'Current Dwelling Vineyard',
+            city: 'Cold Ocean',
+            state: 'CA',
+            manager: 'Full Stacker',
+            price: '9999',
+            bedrooms: 4,
             bathrooms: 2,
-            pets: 'yes',
+            pets: 'no',
             user_id: user.id
           }
         }
@@ -155,14 +161,14 @@ RSpec.describe "Apartments", type: :request do
       it 'cannot create a new apartment without a price' do
         apartment_params = {
           apartment: {
-            street: '221B Baker Street',
-            city: 'London',
-            state: 'England',
-            manager: 'Ms. Hudson',
-            email: 'mzhud@email.com',
-            bedrooms: 2,
+            street: 'Current Dwelling Vineyard',
+            city: 'Cold Ocean',
+            state: 'CA',
+            manager: 'Full Stacker',
+            email: 'full@ofit.com',
+            bedrooms: 4,
             bathrooms: 2,
-            pets: 'yes',
+            pets: 'no',
             user_id: user.id
           }
         }
@@ -175,14 +181,14 @@ RSpec.describe "Apartments", type: :request do
       it 'cannot create a new apartment without bedrooms' do
         apartment_params = {
           apartment: {
-            street: '221B Baker Street',
-            city: 'London',
-            state: 'England',
-            manager: 'Ms. Hudson',
-            email: 'mzhud@email.com',
-            price: '1500',
+            street: 'Current Dwelling Vineyard',
+            city: 'Cold Ocean',
+            state: 'CA',
+            manager: 'Full Stacker',
+            email: 'full@ofit.com',
+            price: '9999',
             bathrooms: 2,
-            pets: 'yes',
+            pets: 'no',
             user_id: user.id
           }
         }
@@ -195,14 +201,14 @@ RSpec.describe "Apartments", type: :request do
       it 'cannot create a new apartment without bathrooms' do
         apartment_params = {
           apartment: {
-            street: '221B Baker Street',
-            city: 'London',
-            state: 'England',
-            manager: 'Ms. Hudson',
-            email: 'mzhud@email.com',
-            price: '1500',
-            bedrooms: 2,
-            pets: 'yes',
+            street: 'Current Dwelling Vineyard',
+            city: 'Cold Ocean',
+            state: 'CA',
+            manager: 'Full Stacker',
+            email: 'full@ofit.com',
+            price: '9999',
+            bedrooms: 4,
+            pets: 'no',
             user_id: user.id
           }
         }
@@ -215,13 +221,13 @@ RSpec.describe "Apartments", type: :request do
       it 'cannot create a new apartment without pets' do
         apartment_params = {
           apartment: {
-            street: '221B Baker Street',
-            city: 'London',
-            state: 'England',
-            manager: 'Ms. Hudson',
-            email: 'mzhud@email.com',
-            price: '1500',
-            bedrooms: 2,
+            street: 'Current Dwelling Vineyard',
+            city: 'Cold Ocean',
+            state: 'CA',
+            manager: 'Full Stacker',
+            email: 'full@ofit.com',
+            price: '9999',
+            bedrooms: 4,
             bathrooms: 2,
             user_id: user.id
           }
@@ -231,6 +237,26 @@ RSpec.describe "Apartments", type: :request do
         expect(error_response['pets']).to include "can't be blank"
         expect(response).to have_http_status(422)
       end
-    end
     
+    it 'cannot create a new apartment without a user id' do
+      apartment_params = {
+        apartment: {
+          street: 'Current Dwelling Vineyard',
+          city: 'Cold Ocean',
+          state: 'CA',
+          manager: 'Full Stacker',
+          email: 'full@ofit.com',
+          price: '9999',
+          bedrooms: 4,
+          bathrooms: 2,
+          pets: 'no',
+        }
+      }
+      post '/apartments', params: apartment_params
+      error_response = JSON.parse(response.body)
+      expect(error_response['user']).to include "can't be blank"
+      expect(response).to have_http_status(422)
+    end
+
+  end
 end
