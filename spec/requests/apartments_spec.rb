@@ -28,7 +28,7 @@ RSpec.describe "Apartments", type: :request do
       expect(apartment['bedrooms']).to eq 3
       expect(apartment['bathrooms']).to eq 3
       expect(apartment['pets']).to eq 'yes'
-      expect(apartment['user_id']).to eq 'user.id'
+      expect(apartment['user_id']).to eq user.id
 
     end
   end
@@ -254,7 +254,7 @@ RSpec.describe "Apartments", type: :request do
       }
       post '/apartments', params: apartment_params
       error_response = JSON.parse(response.body)
-      expect(error_response['user']).to include "can't be blank"
+      expect(error_response['user_id']).to include "can't be blank"
       expect(response).to have_http_status(422)
     end
 
