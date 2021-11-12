@@ -33,7 +33,7 @@ class Header extends Component {
                 <a href={sign_out_route} className="nav-link">Sign Out</a>    
                 <NavLink to="/apartmentindex" className="nav-link">Vacancies</NavLink>
                 <NavLink to="/apartmentnew" className="nav-link">Add Apartment</NavLink>
-                <NavLink to="/myapt" className="nav-link">My Apartments</NavLink>
+                <NavLink to="/myapartments" className="nav-link">My Apartments</NavLink>
                 </>
                 }
             </ul>
