@@ -183,3 +183,173 @@ $ yarn test
 Control + C to stop the testing suite.
 
 Decided to use the built-in methods to navigate from create account to sign up and back to home
+
+For protected index----
+  Make a page
+  place a const {apartments} = this.props
+  Grab pagebody div from other index
+  import page on App.js
+  copy index route and refactor to path--->myaptindex, element--->Protected Index apartments ={apartments}
+  This should only occur when logged in...so wrapped that index in curly braces {this.props.logged_in &&  }
+  index.html.erb holds the parent info and the route is inheriting the properties
+  semantic html gives more description for the container tag..makes it more accessible, more orgranized
+  Nav link to make an internal nav...a href for external
+  Go to header.js
+
+  Protected Index
+
+Seeds for apartments
+  Upate ApartmentController (app/controllers)
+      def index
+        apartments = Apartment.all
+        render json: apartments
+      end
+  Update seeds (db/seeds.rb)
+    apartments = [
+      {
+        street: '1999 Ave',
+        city: 'SD',
+        state: 'CA',
+        manager: 'Prince',
+        email: 'prince@gotit.com',
+        price: '1999',
+        bedrooms: 9,
+        bathrooms: 9,
+        pets: 'not on these carpets'
+      },
+      {
+        street: 'ABC Sesame Street',
+        city: 'SD',
+        state: 'CA',
+        manager: 'Oscar',
+        email: 'oscar@tinthecan.com',
+        price: '1000',
+        bedrooms: 1,
+        bathrooms: 1,
+        pets: 'whatever you wish, as long as whatever does not bother my can'
+      },
+      {
+        street: '456 Elm St',
+        city: 'SD',
+        state: 'CA',
+        manager: 'Freddie',
+        email: 'freddie@stayssharp.com',
+        price: '4000',
+        bedrooms: 5,
+        bathrooms: 3,
+        pets: 'as long as they sleep at night'
+      }
+    ]
+
+    first_user = User.first
+
+    apartments.each do |attribute|
+      first_user.apartments.create attribute
+    end
+
+    on terminal $rails db:seed
+    for good measure $rails db:migrate
+    rails c (to see User.all which will show the valid email accounts, Apartment.all to see all apartments that were created)
+
+  Add validation to Apartment Class (app/models/apt.rb) 
+    validates :street, :city, :state, :manager, :email, :price, :bedrooms, :bathrooms, :pets, :user_id, presence: true
+  
+Index page
+      Update App.js replace the const {
+    //       logged_in,
+    //       current_user,
+    //       new_user_route,
+    //       sign_in_route,
+    //       sign_out_route
+    //     } = this.props
+    with the json syntax to control http requests and responses
+    And pass methods/functions to control how the info is rendered
+
+
+Icon imports
+  $ yarn add @fortawesome/fontawesome-svg-core
+  $ yarn add @fortawesome/free-solid-svg-icons
+  $ yarn add @fortawesome/react-fontawesome
+  import { faHome, faCity } from "@fortawesome/free-solid-svg-icons";
+  import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+Test coverage
+  update the spec/requests/apartment_spec.rb
+  Testing in a React in Rails App
+  $ yarn add jest
+  $ yarn add -D enzyme react-test-renderer enzyme-adapter-react-16 Add to the bottom of package.json
+  "jest": {
+      "roots": [
+        "app/javascript/components"
+      ],
+    "moduleNameMapper": {
+      "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>app/javascript/components/mockFile.js",
+      "\\.(css|less)$": "<rootDir>app/javascript/components/mockFile.js"
+    }
+  Had to create a mockFile.js page with a mock pic variable for test to pass on Header??? Will research
+
+  Attempted a App.test.js...kept receiving a fetch undefined error code. After research, I see I will need more training to setup the test.
+
+  To perform rspec tests
+    Ensure controllers are udated with the methods and application has `skip_before_action :verify_authenticity_token`
+    Upate specs/models and specs/requests
+
+Index controller method
+    
+Request spec
+Fetch for index
+State in app.js
+Added Font Awesome Icons
+
+
+In JSX:
+In JSX:
+
+.index-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.card.card-body {
+  width: 300px;
+  background-color: #FFFEF1;
+  margin: 20px;
+}
+
+form{
+  background-color: #f7f39a;
+}
+.App{
+  text-align: center;
+}
+
+how to reload rails s quicker
+open up text editor
+bin/webpack-dev-server
+
+Demo...one portion of the application 
+
+If you do a bd:drop...sign back in as a user on apt app...the apt need at least one user
+
+Pictures have to be passed in through the import....make separate files for the pictures, create an array. then use the following syntax is called upon the picture.
+class ApartmentIndex extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      pics: [apt, apt1 ]
+    }
+  } 
+  render() {
+    const { apartments } = this.props
+    const { pics } = this.state
+    return (
+      <>
+      
+                  <CardImg src={pics[0]} />
+
+https://reactstrap.github.io/?path=/docs/components-card--card
+
+<img src={pics[index].src} alt={pics[index].alt}/>
+
+Steps on making a carousel
+https://www.newline.co/@andreeamaco/react-carousel-building-the-component-from-scratch-vs-using-a-library--7da468d4

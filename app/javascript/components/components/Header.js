@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-import logo from '../assets/aptmoney.jpeg'
+import ApartmentIndex from '../pages/ApartmentIndex'
+
 
 class Header extends Component {
   render() {
@@ -14,14 +15,15 @@ class Header extends Component {
     return (
       <header>
         <ul style={{color:"lightblue"}}>
-            ★¸.•☆•.¸★ 🄲🄰🅂🄷  🄽  🄲🄾🄼🄵🄾🅁🅃 ★⡀.•☆•.★
+          <NavLink to="/">
+            ☆•.⡀★ 🄲🄰🅂🄷  🄽  🄲🄾🄼🄵🄾🅁🅃 ★⡀.•☆
+          </NavLink>
         </ul>
-        <NavLink to="/">Home</NavLink>
         <div>
             <ul>
                 {!logged_in &&
                 <>
-                <NavLink to="/aptindex" className="nav-link">Vacant Apartments</NavLink>
+                <NavLink to="/apartmentindex" className="nav-link">Vacancies</NavLink>
                 <a href={sign_in_route} className="nav-link">Sign In</a>
                 <a href={new_user_route} className="nav-link">Create Account</a>
                 </>
@@ -29,9 +31,9 @@ class Header extends Component {
                 {logged_in &&
                 <>
                 <a href={sign_out_route} className="nav-link">Sign Out</a>    
-                <NavLink to="/aptindex" className="nav-link">Vacancies</NavLink>
-                <NavLink to="/aptnew" className="nav-link">Add an Apartment</NavLink>
-                <NavLink to="/myapt" className="nav-link">My Apartments</NavLink>
+                <NavLink to="/apartmentindex" className="nav-link">Vacancies</NavLink>
+                <NavLink to="/apartmentnew" className="nav-link">Add Apartment</NavLink>
+                <NavLink to="/myapartments" className="nav-link">My Apartments</NavLink>
                 </>
                 }
             </ul>
